@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Number System Converter</title>
+</head>
+<body>
+<h1>Octal number</h1>
+<form th:action="@{/convert/octal-to-hexadecimal}" method="post">
+    <input type="text" name="octalNumber" th:value="${octalNumber}" />
+</form>
+<h1>Hexadecimal number</h1>
+<form th:action="@{/convert/hexadecimal-to-octal}" method="post">
+    <input type="text" name="hexadecimalNumber" th:value="${hexadecimalNumber}" />
+</form>
+<p th:if="!${#strings.isEmpty(exceptionMessage)}" th:text="${exceptionMessage}"/>
+<h1>Converter History</h1>
+<div th:each="operation:${history}">
+    <p th:text=${operation}></p>
+</div>
+</body>
+</html>
+</html>
